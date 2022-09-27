@@ -1,13 +1,15 @@
 import React, { useState, useEffect  } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
 import { login } from "../slices/auth";
 import { clearMessage } from "../slices/message";
 
-const Login = (props) => {
+const Login = () => {
+  let navigate = useNavigate();
+
   const [loading, setLoading] = useState(false);
 
   const { isLoggedIn } = useSelector((state) => state.auth);
@@ -36,7 +38,7 @@ const Login = (props) => {
     dispatch(login({ username, password }))
       .unwrap()
       .then(() => {
-        props.history.push("/profile");
+        navigate("/profile");
         window.location.reload();
       })
       .catch(() => {
@@ -45,7 +47,7 @@ const Login = (props) => {
   };
 
   if (isLoggedIn) {
-    return <Redirect to="/profile" />;
+    return <Navigate to="/profile" />;
   }
 
   return (
