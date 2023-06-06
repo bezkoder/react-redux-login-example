@@ -45,6 +45,7 @@ const Login = () => {
         setLoading(false);
       });
   };
+  console.log(isLoggedIn)
 
   if (isLoggedIn) {
     return <Navigate to="/profile" />;
