@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Icon from '@ant-design/icons';
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
@@ -16,6 +17,8 @@ import BoardAdmin from "./components/BoardAdmin";
 import { logout } from "./slices/auth";
 
 import EventBus from "./common/EventBus";
+import logoMarkIcon from "./icons/logo-mark-icon";
+import LogoFrameIcon from "./icons/logo-fram-icon";
 
 const App = () => {
   const [showModeratorBoard, setShowModeratorBoard] = useState(false);
@@ -51,12 +54,12 @@ const App = () => {
       <div>
         <nav className="navbar navbar-expand navbar-dark bg-dark">
           <Link to={"/"} className="navbar-brand">
-            bezKoder
+            <Icon component={logoMarkIcon} />
           </Link>
           <div className="navbar-nav mr-auto">
             <li className="nav-item">
               <Link to={"/home"} className="nav-link">
-                Home
+                <Icon component={LogoFrameIcon} />
               </Link>
             </li>
 
