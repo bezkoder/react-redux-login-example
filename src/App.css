@@ -1,3 +1,4 @@
+
 label {
   display: block;
   margin-top: 10px;
@@ -10,24 +11,342 @@ label {
 }
 
 .card {
-  background-color: #f7f7f7;
   padding: 20px 25px 30px;
-  margin: 0 auto 25px;
-  margin-top: 50px;
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
-  border-radius: 2px;
-  -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-  -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    margin: 0 auto 25px;
+    border-radius: 2px;
+    position: relative;
+    border-radius: 21px;
+    display: flex;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    top: 38px;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff9f987;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
 }
 
 .profile-img-card {
   width: 96px;
   height: 96px;
   margin: 0 auto 10px;
+  left: 34%;
+  position: absolute;
+  top: -109%;
   display: block;
-  -moz-border-radius: 50%;
-  -webkit-border-radius: 50%;
   border-radius: 50%;
 }
+
+.login-container {
+  height: calc(100% - 60px);
+  display: flex;
+  flex-direction: column;
+  background-position: bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+  justify-content: center;
+  background-image: url(./icons/back.svg);
+}
+
+.logo-icon {
+    .anticon svg {
+      width: 45px;
+      height: 47px;
+    }
+}
+
+.customized {
+  background: #fff !important;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  height: 60px;
+}
+
+.bottom-login-btn {
+    width: 100%;
+    left: -2px;
+    justify-content: center;
+    margin: auto;
+    display: flex;
+    position: absolute;
+    margin-top: 40px;
+}
+
+.bottom-login-btn button {
+    width: 162px;
+    border-radius: 9px;
+    font-weight: 600;
+    border-color: #86DFF3;
+    background: #86DFF3;
+}
+
+.bottom-login-btn .btn-primary:hover {
+  border-color: #86DFF3;
+  background: #86DFF3;
+}
+
+.bottom-login-btn .btn:not(:disabled):not(.disabled) {
+  border-color: #86DFF3;
+  background: #86DFF3;
+}
+
+.forgot-password {
+  font-family: quicksand;
+  font-size: 13px;
+  color: #8B8B8B;
+  text-align: center;
+}
+
+.bottom-logo {
+  display: flex;
+    justify-content: center;
+  .anticon svg {
+    margin-top: -100px;
+    margin-bottom: 10px;
+  }
+}
+
+.customize-danger {
+  height: 50px;
+  /* top: 38px; */
+  position: absolute;
+  bottom: -152px;
+}
+
+.card-container {
+  height: 100%;
+}
+
+.card-container form {
+  height: 100%;
+}
+
+.top-logo {
+  text-align: center;
+  .anticon svg {
+    margin-top: 20%;
+  }
+}
+
+.icons-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 27px;
+}
+.right-icons {
+  display: flex;
+  gap: 13px;
+}
+.right-icons .left-action-icons-1 {
+  .anticon svg {
+    /* width: 42px; */
+    width: 38px;
+    height: 42px;
+  }
+}
+.right-icons .left-action-icons-2 {
+  .anticon svg {
+    /* width: 42px; */
+    width: 36px;
+    height: 42px;
+  }
+}
+.right-icons .left-action-icons-3 {
+  .anticon svg {
+    /* width: 42px; */
+    width: 36px;
+    height: 42px;
+  }
+}
+.right-icons .left-action-icons-4 {
+  .anticon svg {
+    /* width: 42px; */
+    width: 30px;
+    height: 42px;
+  }
+}
+.right-icons .left-action-icons-5 {
+  .anticon svg {
+    /* width: 42px; */
+    width: 30px;
+    height: 42px;
+  }
+}
+.right-icons .left-action-icons-6 {
+  .anticon svg {
+    /* width: 42px; */
+    width: 27px;
+    height: 42px;
+  }
+}
+.left-icons {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* Carousel Start */
+.gtco-testimonials {
+  position: relative;
+  margin-top: 30px;
+}
+
+.gtco-testimonials h2 {
+  font-size: 30px;
+  text-align: center;
+  color: #333333;
+  margin-bottom: 50px;
+}
+
+.gtco-testimonials .owl-stage-outer {
+  padding: 30px 0;
+}
+
+.gtco-testimonials .owl-nav {
+  display: none;
+}
+
+.gtco-testimonials .owl-dots {
+  text-align: center;
+}
+
+.gtco-testimonials .owl-dots span {
+  position: relative;
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  display: block;
+  background: #fff;
+  border: 2px solid #01b0f8;
+  margin: 0 5px;
+}
+
+.gtco-testimonials .owl-dots .active {
+  box-shadow: none;
+}
+
+.gtco-testimonials .owl-dots .active span {
+  background: #01b0f8;
+  box-shadow: none;
+  height: 12px;
+  width: 12px;
+  margin-bottom: -1px;
+}
+
+.gtco-testimonials .card {
+  background: #fff;
+  box-shadow: 0 8px 30px -7px #c9dff0;
+  margin: 0 20px;
+  padding: 0 10px;
+  border-radius: 20px;
+  border: 0;
+}
+
+.gtco-testimonials .card .card-img-top {
+  max-width: 100px;
+  border-radius: 50%;
+  margin: 15px auto 0;
+  box-shadow: 0 8px 20px -4px #95abbb;
+  width: 100px;
+  height: 100px;
+}
+
+.gtco-testimonials .card h5 {
+  color: #01b0f8;
+  font-size: 21px;
+  line-height: 1.3;
+}
+
+.gtco-testimonials .card h5 span {
+  font-size: 18px;
+  color: #666666;
+}
+
+.gtco-testimonials .card p {
+  font-size: 18px;
+  color: #555;
+  padding-bottom: 15px;
+}
+
+.gtco-testimonials .active {
+  opacity: 0.5;
+  transition: all 0.3s;
+}
+
+.gtco-testimonials .center {
+  opacity: 1;
+}
+
+.gtco-testimonials .center h5 {
+  font-size: 24px;
+}
+
+.gtco-testimonials .center h5 span {
+  font-size: 20px;
+}
+
+.gtco-testimonials .center .card-img-top {
+  max-width: 100%;
+  height: 120px;
+  width: 120px;
+}
+
+@media (max-width: 767px) {
+  .gtco-testimonials {
+    margin-top: 20px;
+  }
+}
+
+.owl-carousel .owl-nav button.owl-next,
+.owl-carousel .owl-nav button.owl-prev {
+  outline: 0;
+}
+
+.owl-carousel button.owl-dot {
+  outline: 0;
+}
+
+/* Carousel end */
+
+/* Register Start */
+.remove-padding {
+  padding-right: 0;
+  padding-left: 0;
+}
+.name-fields {
+  display: flex;
+  gap: 10px;
+  padding-right: 0px;
+  padding-left: 0px;
+}
+.card-register {
+  padding: 20px 25px 30px;
+    margin: 0 auto 25px;
+    border-radius: 2px;
+    position: relative;
+    border-radius: 21px;
+    display: flex;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    top: -62px;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff9f987;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+}
+.profile-img-card-register {
+  width: 96px;
+    height: 96px;
+    margin: 0 auto 10px;
+    left: 34%;
+    position: absolute;
+    top: -49%;
+    display: block;
+    border-radius: 50%;
+}
+.country-select select {
+    width: 100%;
+}
+/* Register End */

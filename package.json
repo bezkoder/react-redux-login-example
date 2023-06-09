@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^5.1.4",
+    "@fontsource/quicksand": "^5.0.2",
     "@reduxjs/toolkit": "^1.8.5",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
@@ -14,6 +15,7 @@
     "firebase": "^9.22.1",
     "formik": "^2.2.9",
     "react": "^18.2.0",
+    "react-country-region-selector": "^3.6.1",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.1",
     "react-router-dom": "^6.4.0",
@@ -22,7 +24,10 @@
     "yup": "^0.32.11"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.16.0"
+    "@babel/plugin-proposal-private-property-in-object": "^7.16.0",
+    "eslint": "^8.42.0",
+    "eslint-plugin-jquery": "^1.5.1",
+    "jquery": "^3.7.0"
   },
   "scripts": {
     "start": "react-scripts start",

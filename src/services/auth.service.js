@@ -2,18 +2,22 @@ import axios from "axios";
 
 const API_URL = "https://my-hope-backend.onrender.com";
 
-const register = (username, email, password) => {
+const register = (email, password, dateOfBirth, firstName, lastName) => {
   return axios.post(API_URL + "/user/new", {
-    username,
     email,
     password,
+    dateOfBirth,
+    name: {
+      firstName,
+      lastName
+    }
   });
 };
 
-const login = (username, password) => {
+const login = (email, password) => {
   return axios
     .post(API_URL + "/user/login", {
-      username,
+      email,
       password,
     })
     .then((response) => {

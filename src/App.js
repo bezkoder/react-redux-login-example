@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link, useLocation } from "react-router-dom";
 import Icon from '@ant-design/icons';
 
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -23,6 +23,7 @@ import LogoFrameIcon from "./icons/logo-fram-icon";
 const App = () => {
   const [showModeratorBoard, setShowModeratorBoard] = useState(false);
   const [showAdminBoard, setShowAdminBoard] = useState(false);
+  const [showNavbar, setShowNavbar] = useState(false);
 
   const { user: currentUser } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
@@ -30,11 +31,12 @@ const App = () => {
   const logOut = useCallback(() => {
     dispatch(logout());
   }, [dispatch]);
+  console.log(currentUser, 'current')
 
   useEffect(() => {
     if (currentUser) {
-      setShowModeratorBoard(currentUser.roles.includes("ROLE_MODERATOR"));
-      setShowAdminBoard(currentUser.roles.includes("ROLE_ADMIN"));
+      // setShowModeratorBoard(currentUser.roles.includes("ROLE_MODERATOR"));
+      // setShowAdminBoard(currentUser.roles.includes("ROLE_ADMIN"));
     } else {
       setShowModeratorBoard(false);
       setShowAdminBoard(false);
@@ -51,10 +53,12 @@ const App = () => {
 
   return (
     <Router>
-      <div>
-        <nav className="navbar navbar-expand navbar-dark bg-dark">
+      <div style={{ height: '100vh' }}>
+        <nav className="navbar navbar-expand customized">
           <Link to={"/"} className="navbar-brand">
+            <div className="logo-icon">
             <Icon component={logoMarkIcon} />
+            </div>
           </Link>
           <div className="navbar-nav mr-auto">
             <li className="nav-item">
@@ -117,8 +121,6 @@ const App = () => {
             </div>
           )}
         </nav>
-
-        <div className="container mt-3">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
@@ -129,7 +131,6 @@ const App = () => {
             <Route path="/mod" element={<BoardModerator />} />
             <Route path="/admin" element={<BoardAdmin />} />
           </Routes>
-        </div>
       </div>
     </Router>
   );
