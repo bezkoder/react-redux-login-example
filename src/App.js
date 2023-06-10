@@ -1,7 +1,13 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { BrowserRouter as Router, Routes, Route, Link, useLocation } from "react-router-dom";
-import Icon from '@ant-design/icons';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link,
+  useLocation,
+} from "react-router-dom";
+import Icon from "@ant-design/icons";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
@@ -33,7 +39,7 @@ const App = () => {
   const logOut = useCallback(() => {
     dispatch(logout());
   }, [dispatch]);
-  console.log(currentUser, 'current')
+  console.log(currentUser, "current");
 
   useEffect(() => {
     if (currentUser) {
@@ -55,11 +61,11 @@ const App = () => {
 
   return (
     <Router>
-      <div style={{ height: '100vh' }}>
+      <div style={{ height: "100vh" }}>
         <nav className="navbar navbar-expand customized">
           <Link to={"/"} className="navbar-brand">
             <div className="logo-icon">
-            <Icon component={logoMarkIcon} />
+              <Icon component={logoMarkIcon} />
             </div>
           </Link>
           <div className="navbar-nav mr-auto">
@@ -93,14 +99,14 @@ const App = () => {
               </li>
             )} */}
           </div>
-            {console.log(currentUser, 'usecur')}
+          {console.log(currentUser, "usecur")}
           {currentUser ? (
-            <div className="navbar-nav ml-auto">
-              <li className="nav-item">
+            <div style={{ alignItems: 'center ' }} className="navbar-nav ml-auto">
+              {/* <li className="nav-item">
                 <Link to={"/profile"} className="nav-link">
                   {currentUser.username}
                 </Link>
-              </li>
+              </li> */}
               <li className="nav-item">
                 <a href="/login" className="nav-link" onClick={logOut}>
                   LogOut
@@ -109,33 +115,33 @@ const App = () => {
             </div>
           ) : (
             <div className="navbar-nav ml-auto">
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <Link to={"/login"} className="nav-link">
                   Login
                 </Link>
-              </li>
+              </li> */}
 
-              <li className="nav-item">
-                {/* <Link to={"/register"} className="nav-link">
+              {/* <Link to={"/register"} className="nav-link">
                   Sign Up
                 </Link> */}
+              {/* <li className="nav-item">
                 <div className="globe-icon">
                   <Icon component={WorldGlobeLineIcon} />
                 </div>
-              </li>
+              </li> */}
             </div>
           )}
         </nav>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/user" element={<BoardUser />} />
-            <Route path="/mod" element={<BoardModerator />} />
-            <Route path="/admin" element={<BoardAdmin />} />
-          </Routes>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/user" element={<BoardUser />} />
+          <Route path="/mod" element={<BoardModerator />} />
+          <Route path="/admin" element={<BoardAdmin />} />
+        </Routes>
       </div>
     </Router>
   );

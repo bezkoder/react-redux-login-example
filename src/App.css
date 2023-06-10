@@ -73,7 +73,9 @@ label {
     left: -2px;
     justify-content: center;
     margin: auto;
+    flex-direction: column;
     display: flex;
+    align-items: center;
     position: absolute;
     margin-top: 40px;
 }
@@ -354,6 +356,10 @@ label {
 }
 .country-select select {
     width: 100%;
+}
+.sign-in-account {
+  color: #306DCE;
+  margin-top: 8px;
 }
 /* Register End */
 
