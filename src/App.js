@@ -19,6 +19,8 @@ import { logout } from "./slices/auth";
 import EventBus from "./common/EventBus";
 import logoMarkIcon from "./icons/logo-mark-icon";
 import LogoFrameIcon from "./icons/logo-fram-icon";
+import GlobeIcon from "./icons/globe-icon";
+import WorldGlobeLineIcon from "./icons/world-globe-line-icon";
 
 const App = () => {
   const [showModeratorBoard, setShowModeratorBoard] = useState(false);
@@ -83,15 +85,15 @@ const App = () => {
               </li>
             )}
 
-            {currentUser && (
+            {/* {currentUser && (
               <li className="nav-item">
                 <Link to={"/user"} className="nav-link">
                   User
                 </Link>
               </li>
-            )}
+            )} */}
           </div>
-
+            {console.log(currentUser, 'usecur')}
           {currentUser ? (
             <div className="navbar-nav ml-auto">
               <li className="nav-item">
@@ -114,9 +116,12 @@ const App = () => {
               </li>
 
               <li className="nav-item">
-                <Link to={"/register"} className="nav-link">
+                {/* <Link to={"/register"} className="nav-link">
                   Sign Up
-                </Link>
+                </Link> */}
+                <div className="globe-icon">
+                  <Icon component={WorldGlobeLineIcon} />
+                </div>
               </li>
             </div>
           )}

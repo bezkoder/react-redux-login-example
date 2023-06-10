@@ -9,11 +9,13 @@ import { clearMessage } from "../slices/message";
 import Icon from "@ant-design/icons";
 import MyHopeHead from "../icons/myHopeHead";
 import logoMarkIcon from "../icons/logo-mark-icon";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [successful, setSuccessful] = useState(false);
   const [loading, setLoading] = useState(false);
   const countryRef = useRef();
+  const navigate = useNavigate();
 
   const { message } = useSelector((state) => state.message);
   const [selectedCountry, setSelectedCountry] = useState("");
@@ -64,6 +66,7 @@ const Register = () => {
     dispatch(register({ email, password, dateOfBirth, firstName, lastName }))
       .unwrap()
       .then(() => {
+        navigate("/profile");
         setSuccessful(true);
       })
       .catch(() => {

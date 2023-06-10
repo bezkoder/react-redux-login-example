@@ -38,6 +38,12 @@ label {
   border-radius: 50%;
 }
 
+.globe-icon {
+  .anticon svg {
+    width: 30px;
+  }
+}
+
 .login-container {
   height: calc(100% - 60px);
   display: flex;
@@ -350,3 +356,48 @@ label {
     width: 100%;
 }
 /* Register End */
+
+/* Home Start */
+  .welcome-banner {
+    text-align: center;
+    margin-top: 30px;
+  }
+  .flame-container {
+    text-align: center;
+    position: relative;
+  }
+  .prayer-head {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 10px;
+    font-family: system-ui;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 60px;
+    gap: 25px;
+  }
+  .prayer-head .headings {
+    font-weight: 600;
+    text-align: center;
+    font-size: 25px;
+  }
+  .world-text {
+    color: #E76099;
+    text-align: center;
+    font-size: 23px;
+  }
+  .the-world-text {
+    position: absolute;
+    top: 100px;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    text-align: center;
+    gap: 30px;
+    flex-direction: column;
+  }
+  .flame-image {
+    text-align: center;
+  }
+/* Home End */

@@ -9,9 +9,19 @@ import SearchIcon from "../icons/search-icon";
 import MessagingIcon from "../icons/messaging-icon";
 import CallIcon from "../icons/call-icon";
 import InvitationIcon from "../icons/invitation-icon";
+import WelcomBanner from "../icons/welcome-banner";
+import ChildSupport from "../icons/child-support";
+import ChildSup from '../icons/child-support.png';
+import LiveIcon from '../icons/live.png';
+import LiveText from '../icons/live-text.png';
+import Rainbow from '../icons/Rainbow.png';
+import RegisterCounter from '../icons/MyHopeRegisterCounter.png';
+import FlameText from '../icons/flame-of-hope.png'
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const [content, setContent] = useState("");
+  const navigate = useNavigate();
 
   // useEffect(() => {
   //   UserService.getPublicContent().then(
@@ -69,28 +79,28 @@ const Home = () => {
       <div className="icons-container">
         <div className="left-icons">
           <div className="home-profile-icon">
-            <Icon component={HomeProfileIcon} />
+            <Icon onClick={() => navigate('/register')} component={HomeProfileIcon} />
           </div>
           <div>Name</div>
         </div>
         <div className="right-icons">
           <div className="left-action-icons-1">
-            <Icon component={InvitationIcon} />
+            <Icon onClick={() => navigate('/register')} component={InvitationIcon} />
           </div>
           <div className="left-action-icons-2">
-            <Icon component={RiceDonateIcon} />
+            <Icon onClick={() => navigate('/register')} component={RiceDonateIcon} />
           </div>
           <div className="left-action-icons-3">
-            <Icon component={MyProfileIcon} />
+            <Icon onClick={() => navigate('/register')} component={MyProfileIcon} />
           </div>
           <div className="left-action-icons-4">
-            <Icon component={SearchIcon} />
+            <Icon onClick={() => navigate('/register')} component={SearchIcon} />
           </div>
           <div className="left-action-icons-5">
-            <Icon component={MessagingIcon} />
+            <Icon onClick={() => navigate('/register')} component={MessagingIcon} />
           </div>
           <div className="left-action-icons-6">
-            <Icon component={CallIcon} />
+            <Icon onClick={() => navigate('/register')} component={CallIcon} />
           </div>
         </div>
       </div>
@@ -178,6 +188,40 @@ const Home = () => {
           </div>
         </div>
       </div> */}
+      <div className="welcome-banner">
+        <Icon onClick={() => navigate('/register')} component={WelcomBanner} />
+      </div>
+      <div style={{ width: '100%' }}>
+        <img style={{ width: '100%' }} src={ChildSup} />
+      </div>
+      {/* <div className="banner-series">
+        <Icon onClick={() => navigate('/register')} component={ChildSupport} />
+      </div> */}
+      <div style={{ marginBottom: '10px', textAlign: 'center' }}>
+       <img src={LiveText} />
+      </div>
+      <div style={{ marginBottom: '10px', textAlign: 'center' }}>
+        <img style={{ width: '100%' }} src={LiveIcon} />
+      </div>
+      <div className="prayer-head">
+        <div className="headings">One fire</div>
+        <div className="headings">that human beings</div>
+        <div className="headings">put prayers and or wishes into</div>
+      </div>
+      <div className="flame-container">
+        <div className="the-world-text">
+          <div className="world-text">The world of</div>
+          <div style={{ textAlign: 'center' }}>
+            <img style={{ width: '200px' }} src={RegisterCounter} />
+          </div>
+          <div className="world-text">fires united as one</div>
+          <div className="world-text">that is</div>
+          <div style={{ marginTop: '90px' }} className="flame-image">
+            <img src={FlameText} />
+          </div>
+        </div>
+        <img style={{ widht: '100%' }} src={Rainbow} />
+      </div>
     </div>
   );
 };
