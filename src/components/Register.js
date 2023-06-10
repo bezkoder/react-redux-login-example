@@ -26,7 +26,6 @@ const Register = () => {
   }, [dispatch]);
 
   const initialValues = {
-    username: "",
     email: "",
     password: "",
   };
@@ -57,6 +56,26 @@ const Register = () => {
   //     .required("This field is required!"),
   // });
 
+  const validate = val => {
+    let errors = {};
+    if(!val.firstName) {
+      errors.firstName = 'Required'
+    }
+    if(!val.lastName) {
+      errors.lastName = 'Required'
+    }
+    if(!val.dateOfBirth) {
+      errors.dateOfBirth = 'Required'
+    }
+    if(!val.email) {
+      errors.email = 'Required'
+    }
+    if(!val.password) {
+      errors.password = 'Required'
+    }
+    return errors;
+  }
+
   const handleRegister = (formValue) => {
     const { email, password, dateOfBirth, firstName, lastName } = formValue;
     setLoading(true);
@@ -85,10 +104,13 @@ const Register = () => {
         <div className="card-container">
           <Formik
             initialValues={initialValues}
+            validate={validate}
             // validationSchema={validationSchema}
             onSubmit={handleRegister}
           >
-            <Form>
+            {
+              ({ values, errors, touched }) => (
+                <Form>
               <div className="card-register">
                 {/* <img
                   src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
@@ -99,16 +121,17 @@ const Register = () => {
                   <div className="remove-padding form-group">
                     {/* <label htmlFor="email">Email</label> */}
                     <Field
+                      style={{ border: (touched && errors.firstName) && '1px solid red' }}
                       name="firstName"
                       placeHolder="Enter first name"
                       type="text"
                       className="form-control"
                     />
-                    <ErrorMessage
+                    {/* <ErrorMessage
                       name="firstName"
                       component="div"
                       className="alert alert-danger"
-                    />
+                    /> */}
                   </div>
                   <div className="form-group">
                     {/* <label htmlFor="email">Email</label> */}
@@ -118,40 +141,42 @@ const Register = () => {
                       type="text"
                       className="form-control"
                     />
-                    <ErrorMessage
+                    {/* <ErrorMessage
                       name="middleName"
                       component="div"
                       className="alert alert-danger"
-                    />
+                    /> */}
                   </div>
                   <div className="form-group">
                     {/* <label htmlFor="email">Email</label> */}
                     <Field
+                      style={{ border: (touched && errors.lastName) && '1px solid red' }}
                       name="lastName"
                       placeHolder="Enter last name"
                       type="text"
                       className="form-control"
                     />
-                    <ErrorMessage
+                    {/* <ErrorMessage
                       name="lastName"
                       component="div"
                       className="alert alert-danger"
-                    />
+                    /> */}
                   </div>
                 </div>
                 <div className="form-group">
                   {/* <label htmlFor="email">Email</label> */}
                   <Field
+                    style={{ border: (touched && errors.email) && '1px solid red' }}
                     placeHolder="Enter email"
                     name="email"
                     type="email"
                     className="form-control"
                   />
-                  <ErrorMessage
+                  {/* <ErrorMessage
                     name="email"
                     component="div"
                     className="alert alert-danger"
-                  />
+                  /> */}
                 </div>
                 <div className="form-group">
                   {/* <label htmlFor="email">Email</label> */}
@@ -161,11 +186,11 @@ const Register = () => {
                     type="number"
                     className="form-control"
                   />
-                  <ErrorMessage
+                  {/* <ErrorMessage
                     name="phoneNumber"
                     component="div"
                     className="alert alert-danger"
-                  />
+                  /> */}
                 </div>
                 {/* <div className='country-select' ref={countryRef}>
                 <CountryDropdown
@@ -175,30 +200,32 @@ const Register = () => {
                 <div className="form-group">
                   {/* <label htmlFor="password">Password</label> */}
                   <Field
+                    style={{ border: (touched && errors.password) && '1px solid red' }}
                     name="password"
                     type="password"
                     placeHolder="Enter password"
                     className="form-control"
                   />
-                  <ErrorMessage
+                  {/* <ErrorMessage
                     name="password"
                     component="div"
                     className="alert alert-danger"
-                  />
+                  /> */}
                 </div>
                 <div className="form-group">
                   {/* <label htmlFor="password">Password</label> */}
                   <Field
                     name="dateOfBirth"
+                    style={{ border: (touched && errors.dateOfBirth) && '1px solid red' }}
                     type="text"
                     placeHolder="Enter date of birth"
                     className="form-control"
                   />
-                  <ErrorMessage
+                  {/* <ErrorMessage
                     name="dateOfBirth"
                     component="div"
                     className="alert alert-danger"
-                  />
+                  /> */}
                 </div>
               </div>
 
@@ -216,8 +243,11 @@ const Register = () => {
                   )}
                   <span>Register</span>
                 </button>
+              <div onClick={() => navigate('/login')} className="sign-in-account">Already have an account ? Sign In</div>
               </div>
             </Form>
+              )
+            }
           </Formik>
         </div>
 

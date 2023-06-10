@@ -34,6 +34,9 @@ const Login = () => {
     if (!val.email) {
       errors.email = "Email is required!";
     }
+    if(val.email && !val.email.includes('@')) {
+      errors.email = 'Enter a valid email'
+    }
     if (!val.password) {
       errors.password = "Password is required!";
     }
@@ -75,60 +78,68 @@ const Login = () => {
             // validationSchema={validationSchema}
             onSubmit={handleLogin}
           >
-            <Form>
-              <div className="card">
-                <img
-                  src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-                  alt="profile-img"
-                  className="profile-img-card"
-                />
-                <div className="form-group">
-                  {/* <label htmlFor="email">Email</label> */}
-                  <Field
-                    placeHolder="Enter name"
-                    name="email"
-                    type="email"
-                    className="form-control"
+            {
+              ({ values, errors, touched }) => (
+                <Form>
+                <div className="card">
+                  <img
+                    src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+                    alt="profile-img"
+                    className="profile-img-card"
                   />
-                  <ErrorMessage
-                    name="email"
-                    component="div"
-                    className="alert alert-danger"
-                  />
+                  {console.log(errors,' err')}
+                  <div className="form-group">
+                    {/* <label htmlFor="email">Email</label> */}
+                    <Field
+                      // onChange={e => getFunct(e)}
+                      style={{ border: (touched && errors.email) && '1px solid red' }}
+                      placeHolder="Enter email"
+                      name="email"
+                      type="email"
+                      className="form-control"
+                    />
+                    {/* <ErrorMessage
+                      name="email"
+                      component="div"
+                      className="alert alert-danger"
+                    /> */}
+                  </div>
+  
+                  <div className="form-group">
+                    {/* <label htmlFor="password">Password</label> */}
+                    <Field
+                      style={{ border: (touched && errors.password) && '1px solid red' }}
+                      name="password"
+                      type="password"
+                      placeHolder="Enter password"
+                      className="form-control"
+                    />
+                    {/* <ErrorMessage
+                      name="password"
+                      component="div"
+                      className="alert alert-danger"
+                    /> */}
+                  </div>
+                  <div className="forgot-password">
+                    If you forgot password ...
+                  </div>
                 </div>
-
-                <div className="form-group">
-                  {/* <label htmlFor="password">Password</label> */}
-                  <Field
-                    name="password"
-                    type="password"
-                    placeHolder="Enter password"
-                    className="form-control"
-                  />
-                  <ErrorMessage
-                    name="password"
-                    component="div"
-                    className="alert alert-danger"
-                  />
+  
+                <div className="form-group bottom-login-btn">
+                  <button
+                    type="submit"
+                    className="btn btn-primary btn-block"
+                    disabled={loading}
+                  >
+                    {loading && (
+                      <span className="spinner-border spinner-border-sm"></span>
+                    )}
+                    <span>Login</span>
+                  </button>
                 </div>
-                <div className="forgot-password">
-                  If you forgot password ...
-                </div>
-              </div>
-
-              <div className="form-group bottom-login-btn">
-                <button
-                  type="submit"
-                  className="btn btn-primary btn-block"
-                  disabled={loading}
-                >
-                  {loading && (
-                    <span className="spinner-border spinner-border-sm"></span>
-                  )}
-                  <span>Login</span>
-                </button>
-              </div>
-            </Form>
+              </Form>
+              )
+            }
           </Formik>
         </div>
         <div
